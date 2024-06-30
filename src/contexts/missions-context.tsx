@@ -8,11 +8,11 @@ import { cards, columns } from '@/mocks/init-data'
 import React, {
     PropsWithChildren,
     createContext,
-    useId,
     useRef,
     useState,
   } from 'react'
 import { useForm } from 'react-hook-form'
+import styled from 'styled-components'
 
   type TMissionsContext = {
     setisAddModalVisible?: React.Dispatch<React.SetStateAction<boolean>>
@@ -33,6 +33,40 @@ import { useForm } from 'react-hook-form'
     onDragStart: ({}) => {},
 })
  
+const FieldWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0;
+    `
+
+const Label = styled.label`
+    margin-bottom: 4px;
+`
+
+const Input = styled.input`
+    outline: none;
+    border: 2px #e6e8ec solid;
+    font-size: 16px;
+    padding: 8px;
+`
+
+const Textarea = styled.textarea`
+    outline: none;
+    border: 2px #e6e8ec solid;
+    font-size: 16px;
+    padding: 8px;
+    resize:none;
+`
+
+const ValidationError = styled.span`
+    font-size: 14px;
+    color: #dc1e1e;
+    font-weight: 700;
+    margin-top: 4px;
+`
+
+const DeletionDisclaimer = styled.p``
+
   export const MissionsProvider = ({ children }: PropsWithChildren) => {
     const [isAddModalVisible, setisAddModalVisible] = useState(false)
     const [isDeleteModalVisible, setisDeleteModalVisible] = useState(false)
@@ -164,18 +198,19 @@ import { useForm } from 'react-hook-form'
             additionalTitle="Mission"
             mainActionTitle="Create"
             mainActionFn={handleCardAddConfirm} 
+            cancelActionFn={() => setisAddModalVisible(false)}
         >
             <>
-                <div>
-                    <label>Title*</label>
-                    <input type='text' {...register("title", { required: true })} />
-                    {errors.title && <span>This field is required</span>}
-                </div>
+                <FieldWrapper>
+                    <Label>Title*</Label>
+                    <Input type='text' {...register("title", { required: true })} />
+                    {errors.title && <ValidationError>This field is required</ValidationError>}
+                </FieldWrapper>
 
-                <div>
-                    <label>Description</label>
-                    <textarea {...register("description")} ></textarea>
-                </div>
+                <FieldWrapper>
+                    <Label>Description</Label>
+                    <Textarea {...register("description")} ></Textarea>
+                </FieldWrapper>
             </>
         </Modal>}
         
@@ -184,8 +219,9 @@ import { useForm } from 'react-hook-form'
             additionalTitle="Mission"
             mainActionTitle="Delete"
             mainActionFn={handleCardDeletionConfirm}
+            cancelActionFn={() => setisDeleteModalVisible(false)}
         >
-            <p>Are you sure? You can't undo this action afterwards.</p>
+            <DeletionDisclaimer>Are you sure? You can't undo this action afterwards.</DeletionDisclaimer>
         </Modal>}
 
         {children}

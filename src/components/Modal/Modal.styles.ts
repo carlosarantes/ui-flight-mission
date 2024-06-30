@@ -17,8 +17,22 @@ export const ModalCard = styled.div`
     background: #ffffff;
     width: 450px;
     color: #0c1f45;
-    padding: 16px;
+    padding: 20px 28px;
     border-radius: 6px;
+`
+
+export const ModalHeading = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+`
+
+export const CloseButton = styled.button`
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
 `
 
 export const ActionButtons = styled.div`

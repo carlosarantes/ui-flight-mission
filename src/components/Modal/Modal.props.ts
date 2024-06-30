@@ -3,4 +3,5 @@ export type TModalProps = {
     additionalTitle: string
     mainActionTitle: string
     mainActionFn: () => void
+    cancelActionFn?: () => void
 }
