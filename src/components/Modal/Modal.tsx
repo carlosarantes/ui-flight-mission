@@ -9,7 +9,7 @@ const Modal: React.FC<PropsWithChildren<TModalProps>> = (props) => {
     return <S.Overlay>
         <S.ModalCard>
             <S.ModalHeading>
-                <h3><strong>{props.boldTitle}</strong> - {props.additionalTitle}</h3>
+                <S.ModalTitle>{props.boldTitle} - <span>{props.additionalTitle}</span></S.ModalTitle>
                 <S.CloseButton onClick={props?.cancelActionFn}>
                     <TimesIcon width={20} height={20} fill="#999999" />
                 </S.CloseButton>

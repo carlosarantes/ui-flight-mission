@@ -34,7 +34,7 @@ export const cards: TCardProps[] = [
     {
         id:'3',
         title: "Wildlife Suiveillance",
-        description: "sfsdfs sf dsfsdfsfdsdf",
+        description: "Protect wildlife in remote areas with aerial patrols.",
         status: 'flight',
         columnId: '2'
     },

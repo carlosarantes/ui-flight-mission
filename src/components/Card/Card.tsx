@@ -26,7 +26,12 @@ const Card: React.FC<TCardProps> = (card) => {
     }
 
     if(isDragging) {
-        return <S.CardContainer ref={setNodeRef}></S.CardContainer>
+        return <S.CardContainer 
+                    ref={setNodeRef} 
+                    status={card.status}
+                    isDragging>
+                <S.CardHeading></S.CardHeading>
+        </S.CardContainer>
     }
 
     return <S.CardContainer 

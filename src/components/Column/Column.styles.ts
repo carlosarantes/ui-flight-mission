@@ -9,11 +9,11 @@ export const ColumnContainer = styled.div`
 `
 
 export const ColumnTitle = styled.h3`
-
+    font-weight: 600;
 `
 
 
 export const CardsBucket = styled.div`
     min-height: 400px;
-
+    margin-top: 24px;
 `

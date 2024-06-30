@@ -215,7 +215,7 @@ const DeletionDisclaimer = styled.p``
         </Modal>}
         
         {isDeleteModalVisible && <Modal
-            boldTitle="Delete"
+            boldTitle="DELETE"
             additionalTitle="Mission"
             mainActionTitle="Delete"
             mainActionFn={handleCardDeletionConfirm}

@@ -28,6 +28,14 @@ export const ModalHeading = styled.div`
 }
 `
 
+export const ModalTitle = styled.h3`
+    font-weight: 800;
+
+    span {
+        font-weight: 300;
+    }
+`
+
 export const CloseButton = styled.button`
     background: none;
     border: none;
